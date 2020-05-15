@@ -11,7 +11,16 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
-//
+
+Cypress.Commands.add('create', (model, overrides = {}) => {
+    cy.request(`/__testing__/create/${model}`, overrides).its('body');
+});
+
+Cypress.Commands.add('login', (overrides = {}) => {
+    cy.request('/__testing__/login', overrides);
+});
+
+
 //
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

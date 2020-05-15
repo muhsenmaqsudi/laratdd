@@ -12,7 +12,14 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
+before(() => {
+    cy.exec('cp .env .env.backup');
+    cy.exec('cp .env.acceptance .env')
+});
 
+after(() => {
+    cy.exec('mv .env.backup .env');
+});
 // Import commands.js using ES2015 syntax:
 import './commands'
 

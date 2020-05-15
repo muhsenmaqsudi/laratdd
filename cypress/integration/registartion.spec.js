@@ -5,7 +5,7 @@ describe('Registration', () => {
     const password = faker.internet.password();
 
     it('should successfully registering', function () {
-        cy.visit('http://127.0.0.1:8000/register');
+        cy.visit('/register');
         cy.get('input[name=name]').type(faker.name.findName());
         cy.get('input[name=email]').type(email);
         cy.get('input[name=password]').type(password);
