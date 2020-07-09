@@ -31,3 +31,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/books', 'BookController@store');
+Route::patch('/books/{book}', 'BookController@update');
